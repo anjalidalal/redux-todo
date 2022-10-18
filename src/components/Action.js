@@ -1,12 +1,13 @@
-import { nanoid } from "nanoid";
-
-export const addTodo = (text) => {
+export const addTodo = (data) => {
   return {
     type: "ADD_TODO",
-    payload: {
-      status: false,
-      title: text,
-      id: nanoid(),
-    },
+    payload: data,
+  };
+};
+
+export const deleteTodo = (id) => {
+  return {
+    type: "DEL_TODO",
+    payload: { id: id },
   };
 };
