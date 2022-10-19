@@ -3,10 +3,9 @@ const Reducer = (state = [], action) => {
     case "ADD_TODO":
       return [...state, action.payload];
     case "DEL_TODO":
-      return {
-        ...state,
-        state: state.filter((el) => action.payload.id !== el.id),
-      };
+      return state.filter((el) => action.payload.id !== el.id);
+    case "EDIT_TODO":
+      return state;
     default:
       return state;
   }

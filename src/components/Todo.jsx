@@ -5,7 +5,6 @@ import { nanoid } from "nanoid";
 
 const Todo = () => {
   const [text, setText] = useState("");
-  //   const [check, setCheck] = useState(false);
   const dispatch = useDispatch();
   const todoReducer = useSelector((store) => store);
   console.log(todoReducer);
@@ -35,13 +34,7 @@ const Todo = () => {
       {todoReducer.map((todo) => (
         <div className="list" key={todo.id}>
           <label key={todo.id}>
-            <input
-              type="checkbox"
-              //   checked={check}
-              //   id={todo.id}
-              //   name="name"
-              //   onChange={() => setCheck(!check)}
-            />
+            <input type="checkbox" />
             {todo.title}
             <button
               onClick={() => {
