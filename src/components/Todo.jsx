@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, deleteTodo } from "./Action";
+import { addTodo, deleteTodo, editTodo } from "./Action";
 import { nanoid } from "nanoid";
 
 const Todo = () => {
@@ -31,24 +31,76 @@ const Todo = () => {
       >
         Add
       </button>
-      {todoReducer.map((todo) => (
-        <div className="list" key={todo.id}>
-          <label key={todo.id}>
-            <input type="checkbox" />
-            {todo.title}
-            <button
-              onClick={() => {
-                dispatch(deleteTodo(todo.id));
-              }}
-            >
-              Delete
-            </button>
-            <button>Edit</button>
-          </label>
-        </div>
-      ))}
+      <ul>
+        {todoReducer.map((todo) => (
+          <li key={todo.id}>
+            <Task todo={todo} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
+function Task({ todo }) {
+  const [editing, setEditing] = useState(false);
+
+  let taskContent;
+
+  if (editing) {
+    taskContent = (
+      <>
+        <input
+          type="text"
+          value={todo.title}
+          onChange={(e) => {
+            dispatch(
+              editTodo({
+                ...todo,
+                title: e.target.value,
+              })
+            );
+          }}
+        />
+        <button onClick={() => setEditing(false)}>Save</button>
+      </>
+    );
+  } else {
+    taskContent = (
+      <>
+        {todo.title}
+        <button onClick={() => setEditing(true)}>Edit</button>
+      </>
+    );
+  }
+
+  return (
+    <>
+      {taskContent}
+      <button
+        onClick={() => {
+          dispatch(deleteTodo(todo.id));
+        }}
+      >
+        Delete
+      </button>
+    </>
+  );
+}
+
 export default Todo;
+
+{
+  /* <label key={todo.id}>
+  <input type="checkbox" />
+  {todo.title}
+  <button
+    onClick={() => {
+      dispatch(deleteTodo(todo.id));
+    }}
+  >
+    Delete
+  </button>
+  <button>Edit</button>
+</label>; */
+}
