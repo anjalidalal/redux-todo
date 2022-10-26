@@ -35,13 +35,8 @@ const TodoItem = ({
           className="save"
           onClick={() => {
             setEditing(false);
-            // const data = {
-            //   title: task,
-            //   status: false,
-            //   id: nanoid(),
-            // };
-            // handleEditTodo(data);
           }}
+          onMouseOver={() => focus()}
         >
           {" "}
           <img src={logo} className="logo" />
