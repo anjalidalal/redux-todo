@@ -33,7 +33,7 @@ body {
   position: relative;
   justify-content: space-between;
   align-content: center;
-  background-color: #e5e7eb;
+  background-color: white;
   margin-bottom: 20px;
 }
 .input {
@@ -64,7 +64,7 @@ button {
 }
 .todo {
   color: black;
-  background-color: #e5e7eb;
+  background-color: white;
   width: 280px;
   margin: 10px 0px 0px 0px;
   display: flex;
@@ -76,6 +76,15 @@ p,
 .task {
   width: 170px;
   overflow: hidden;
+}
+#task {
+  height: 38px;
+  font-size: 15px;
+  border: none;
+  background-color: #dadbde;
+}
+#task:focus {
+  outline: 2px solid rgb(28 148 217);
 }
 .logo {
   width: 30px;
