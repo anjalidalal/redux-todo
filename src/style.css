@@ -1,24 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Mulish:wght@400;700&family=Poppins:wght@100;200;300;400;500;600;700&family=Raleway:wght@300;400;700&display=swap");
+
 * {
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
 }
-
-body,
-#root {
+body {
+  background-color: #222;
+  font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .main {
   margin: 30px;
   padding: 10px;
 }
-.list {
+#root {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  flex-direction: column;
+  margin: auto;
+}
+.header {
+  width: 260px;
+  height: 45px;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-content: center;
+  background-color: #e5e7eb;
+  margin-bottom: 20px;
+}
+.input {
+  color: rgb(34, 34, 34);
+  border-width: 0;
+  border-style: solid;
+  background-color: #e5e7eb;
+  border-color: #e5e7eb;
+  padding: 5px 10px;
+  width: 220px;
+  font-size: 15px;
+}
+input:focus {
+  outline: none;
+}
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+.btn {
+  background-color: rgb(28 148 217);
+  color: #f2f2f2;
+  border: none;
+  text-transform: uppercase;
+  width: 50px;
+  padding: 5px;
+}
+.todo {
+  color: black;
+  background-color: #e5e7eb;
+  width: 280px;
+  margin: 10px 0px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+#task {
+  height: 44px;
+  background-color: rgb(188, 185, 185);
+  border: none;
+}
+#task:focus {
+  outline: 2px solid rgb(28 148 217);
+}
+.task {
+  height: 44px;
+  width: 162px;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  padding: 0px 5px;
+}
+.first {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.second {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.icon {
+  width: 25px;
+  height: 28px;
+}
+h1 {
+  color: #f2f2f2;
+  font-weight: 500;
+  margin-top: 30px;
+}
+h3 {
+  color: #f2f2f2;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+.save {
+  background-color: rgb(28 148 217);
+  color: #f2f2f2;
+  border: none;
+  padding: 5px;
+  height: 44px;
+  font-size: 16px;
+}
+.strike {
+  text-decoration: line-through;
+}
+.showall {
+  background-color: rgb(28 148 217);
+  color: #f2f2f2;
+  border: none;
+  text-transform: uppercase;
+  width: 100px;
+  padding: 10px;
+  margin: 30px 10px;
+  font-weight: 500;
+}
+.delete {
+  margin-right: 3px;
+}
+@media (min-width: 768px) {
+  .header {
+    width: 500px;
+    height: 50px;
+    margin: 30px 0px;
+  }
+  label {
+    padding: 0px 10px;
+    position: absolute;
+    width: 520px;
+    overflow: hidden;
+  }
+  .input {
+    width: 450px;
+    position: relative;
+  }
+  .todo {
+    width: 600px;
+    margin: 15px 0px 0px 0px;
+  }
+  .showall {
+    width: 120px;
+    height: 45px;
+  }
+  .task {
+    width: 460px;
+  }
+  .delete {
+    margin-right: 10px;
+  }
+  .done {
+    margin-right: 10px;
+  }
 }

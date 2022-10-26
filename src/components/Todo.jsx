@@ -1,76 +1,97 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, deleteTodo, editTodo } from "./Action";
-import { nanoid } from "nanoid";
+import { addTodo, deleteTodo, toggleTodo, editTodo } from "./Action";
+import TodoList from "./TodoList";
 
 const Todo = () => {
   const [text, setText] = useState("");
-  const [editing, setEditing] = useState(false);
+  // const [editing, setEditing] = useState(false);
   const dispatch = useDispatch();
-  const todoReducer = useSelector((store) => store);
-  console.log(todoReducer);
-  let taskContent;
+  const todos = useSelector((store) => store.todos);
+  console.log(todos);
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+
+  const handleAddTodo = () => {
+    const action = addTodo(text);
+    dispatch(action);
+    setText("");
+  };
+
+  const handleDeleteTodo = (id) => {
+    const action = deleteTodo(id);
+    dispatch(action);
+  };
+
+  const handleToggleTodo = (id) => {
+    const action = toggleTodo(id);
+    dispatch(action);
+  };
+
+  const handleEditTodo = (data) => {
+    const action = editTodo(data);
+    dispatch(action);
+  };
+
+  // const getTaskContent = (todo) => {
+  //   if (editing) {
+  //     return (
+  //       <>
+  //         <input
+  //           type="text"
+  //           id="task"
+  //           className="task"
+  //           value={todo.title}
+  //           onChange={(e) => {
+  //             dispatch(
+  //               editTodo({
+  //                 ...todo,
+  //                 title: e.target.value,
+  //               })
+  //             );
+  //           }}
+  //         />
+  //         <button className="save" onClick={() => setEditing(false)}>
+  //           Save
+  //         </button>
+  //       </>
+  //     );
+  //   } else {
+  //     return (
+  //       <>
+  //         <p className="task">{todo.title}</p>
+  //         <button onClick={() => setEditing(true)}>
+  //           <img src={logo} className="icon" />
+  //         </button>
+  //       </>
+  //     );
+  //   }
+  // };
 
   return (
-    <div className="main">
-      <input
-        type="text"
-        value={text}
-        onChange={(e) => {
-          setText(e.target.value);
-        }}
+    <>
+      <h1>Todo List App</h1>
+      <h3>By Anjali Dalal</h3>
+      <div className="header">
+        <input
+          className="input"
+          type="text"
+          value={text}
+          onChange={handleChange}
+        />
+        <button className="btn" onClick={handleAddTodo}>
+          Add
+        </button>
+      </div>
+      <TodoList
+        data={todos}
+        handleDeleteTodo={handleDeleteTodo}
+        handleEditTodo={handleEditTodo}
+        handleToggleTodo={handleToggleTodo}
       />
-      <button
-        onClick={() => {
-          setText("");
-          const data = {
-            title: text,
-            id: nanoid(),
-            status: false,
-          };
-          dispatch(addTodo(data));
-        }}
-      >
-        Add
-      </button>
-      {todoReducer.map((todo) => (
-        <div className="list" key={todo.id}>
-          <p key={todo.id}>
-            {editing
-              ? (taskContent = (
-                  <>
-                    <input
-                      type="text"
-                      value={todo.title}
-                      onChange={(e) => {
-                        dispatch(
-                          editTodo({
-                            ...todo,
-                            title: e.target.value,
-                          })
-                        );
-                      }}
-                    />
-                    <button onClick={() => setEditing(false)}>Save</button>
-                  </>
-                ))
-              : (taskContent = (
-                  <>
-                    {todo.title}
-                    <button onClick={() => setEditing(true)}>Edit</button>
-                  </>
-                ))}
-            <button
-              onClick={() => {
-                dispatch(deleteTodo(todo.id));
-              }}
-            >
-              Delete
-            </button>
-          </p>
-        </div>
-      ))}
-    </div>
+    </>
   );
 };
 
