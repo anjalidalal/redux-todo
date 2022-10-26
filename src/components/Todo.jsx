@@ -35,41 +35,6 @@ const Todo = () => {
     dispatch(action);
   };
 
-  // const getTaskContent = (todo) => {
-  //   if (editing) {
-  //     return (
-  //       <>
-  //         <input
-  //           type="text"
-  //           id="task"
-  //           className="task"
-  //           value={todo.title}
-  //           onChange={(e) => {
-  //             dispatch(
-  //               editTodo({
-  //                 ...todo,
-  //                 title: e.target.value,
-  //               })
-  //             );
-  //           }}
-  //         />
-  //         <button className="save" onClick={() => setEditing(false)}>
-  //           Save
-  //         </button>
-  //       </>
-  //     );
-  //   } else {
-  //     return (
-  //       <>
-  //         <p className="task">{todo.title}</p>
-  //         <button onClick={() => setEditing(true)}>
-  //           <img src={logo} className="icon" />
-  //         </button>
-  //       </>
-  //     );
-  //   }
-  // };
-
   return (
     <>
       <h1>Todo List App</h1>
