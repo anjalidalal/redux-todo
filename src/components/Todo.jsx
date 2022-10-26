@@ -15,9 +15,13 @@ const Todo = () => {
   };
 
   const handleAddTodo = () => {
-    const action = addTodo(text);
-    dispatch(action);
-    setText("");
+    if (text === "") {
+      alert("Enter task");
+    } else {
+      const action = addTodo(text);
+      dispatch(action);
+      setText("");
+    }
   };
 
   const handleDeleteTodo = (id) => {
