@@ -1,7 +1,7 @@
 import React from "react";
-// import logo from "./logo.png";
-// import Done from "./Done.png";
-// import Wrong from "./Wrong.png";
+import logo from "./logo.png";
+import Done from "./Done.png";
+import Wrong from "./Wrong.png";
 
 const TodoItem = ({
   todo,
@@ -12,16 +12,23 @@ const TodoItem = ({
   return (
     <div className="todo">
       <p className={todo.status ? "strike" : ""}>{todo.title}</p>
-      <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
-      <button
-        onClick={() => {
-          console.log(todo.status);
-          handleToggleTodo(todo.id);
-        }}
-      >
-        Done
-      </button>
-      <button onClick={() => handleEditTodo(todo.id)}>Edit</button>
+      <div className="icons">
+        <button onClick={() => handleDeleteTodo(todo.id)}>
+          <img src={Wrong} className="logo" />
+        </button>
+        <button
+          onClick={() => {
+            console.log(todo.status);
+            handleToggleTodo(todo.id);
+          }}
+        >
+          <img src={Done} className="logo" />
+        </button>
+        <button onClick={() => handleEditTodo(todo.id)}>
+          {" "}
+          <img src={logo} className="logo" />
+        </button>
+      </div>
     </div>
   );
 };

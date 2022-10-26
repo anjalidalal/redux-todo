@@ -24,6 +24,7 @@ body {
   align-items: center;
   flex-direction: column;
   margin: auto;
+  padding-bottom: 30px;
 }
 .header {
   width: 260px;
@@ -71,35 +72,20 @@ button {
   align-items: center;
   padding: 5px;
 }
-#task {
-  height: 44px;
-  background-color: rgb(188, 185, 185);
-  border: none;
+p {
+  width: 170px;
+  overflow: hidden;
 }
-#task:focus {
-  outline: 2px solid rgb(28 148 217);
+.logo {
+  width: 30px;
+  height: 30px;
+  margin: 0px 2px;
 }
-.task {
-  height: 44px;
-  width: 162px;
-  font-size: 19px;
+.icons {
   display: flex;
   align-items: center;
-  padding: 0px 5px;
-}
-.first {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-.second {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-.icon {
-  width: 25px;
-  height: 28px;
+  padding: 3px;
 }
 h1 {
   color: #f2f2f2;
@@ -111,40 +97,18 @@ h3 {
   font-weight: 300;
   margin-bottom: 30px;
 }
-.save {
-  background-color: rgb(28 148 217);
-  color: #f2f2f2;
-  border: none;
-  padding: 5px;
-  height: 44px;
-  font-size: 16px;
-}
 .strike {
   text-decoration: line-through;
 }
-.showall {
-  background-color: rgb(28 148 217);
-  color: #f2f2f2;
-  border: none;
-  text-transform: uppercase;
-  width: 100px;
-  padding: 10px;
-  margin: 30px 10px;
-  font-weight: 500;
-}
-.delete {
-  margin-right: 3px;
-}
+
 @media (min-width: 768px) {
   .header {
     width: 500px;
     height: 50px;
     margin: 30px 0px;
   }
-  label {
-    padding: 0px 10px;
-    position: absolute;
-    width: 520px;
+  p {
+    width: 540px;
     overflow: hidden;
   }
   .input {
@@ -154,18 +118,5 @@ h3 {
   .todo {
     width: 600px;
     margin: 15px 0px 0px 0px;
-  }
-  .showall {
-    width: 120px;
-    height: 45px;
-  }
-  .task {
-    width: 460px;
-  }
-  .delete {
-    margin-right: 10px;
-  }
-  .done {
-    margin-right: 10px;
   }
 }
